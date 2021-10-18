@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms'
+import {FormsModule ,ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule  } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './Home/home-page/home-page.component';
@@ -19,7 +19,8 @@ import { PlayVideoPageComponent } from './Home/play-video-page/play-video-page.c
 import { ResetPasswrodComponent } from './Home/reset-passwrod/reset-passwrod.component';
 import { IndexComponent } from './AdminDashboard/index/index.component';
 import { TestComponent } from './customer/test/test.component';
-
+import { SharedServiceService } from './shared-service.service';
+import {HttpClientModule} from '@angular/common/http'
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,9 +44,11 @@ import { TestComponent } from './customer/test/test.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SharedServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
