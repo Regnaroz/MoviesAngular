@@ -9,10 +9,11 @@ import { MoviesComponent } from './Home/movies/movies.component';
 import { PlayVideoPageComponent } from './Home/play-video-page/play-video-page.component';
 import { PricingPlanComponent } from './Home/pricing-plan/pricing-plan.component';
 import { ShowDetailsComponent } from './Home/show-details/show-details.component';
+import { SignUpPageComponent } from './Home/sign-up-page/sign-up-page.component';
 import { TvShowsComponent } from './Home/tv-shows/tv-shows.component';
 
 const routes: Routes = [
-  {path:'' , component:HomePageComponent}, // default Page
+  {path:'' , component:LoginPageComponent}, // default Page
   {path:'HomePage' , component:HomePageComponent},
   {path:'ManageProfile' , component:ManageProfileComponent},
   { path:'TvShows',component: TvShowsComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'logIn',component:LoginPageComponent},
   {path:'ShowDetails',component:ShowDetailsComponent},
   {path:'playVideo',component:PlayVideoPageComponent},
+  {path:'SignUp',component:SignUpPageComponent},
   {path:'adminDashboard',component:IndexComponent}
 ];
 
