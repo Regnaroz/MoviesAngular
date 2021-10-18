@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SharedServiceService } from 'src/app/shared-service.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,10 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  
-  constructor() { }
+  loginList:any=[]
+  username:string=""
+  password:string=""
+ token=""
+
+   login ={
+    UserName:"",
+    Password :""
+   }
+
+  constructor(private myService :SharedServiceService) { 
+     
+  }
 
   ngOnInit(): void {
   }
+getLogin(){
+  this.myService.getLoginList().subscribe(data=> {this.loginList=data})
 
+}
+
+checkLogin(){
+this.login.UserName=this.username
+this.login.Password=this.password
+this.myService.checkLogin(this.login).subscribe(data=>{this.token=data})
+
+  }
 }
