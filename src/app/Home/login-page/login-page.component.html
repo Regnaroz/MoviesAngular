@@ -8,16 +8,17 @@
                 <div class="sign-in-page-data">
                    <div class="sign-in-from w-100 m-auto">
                       <h3 class="mb-3 text-center">Sign in</h3>
-                      <form class="mt-4" action="index.html">
+
+                      <form class="mt-4" #userPost="ngForm" (ngSubmit)="getToken(userPost)">
                          <div class="form-group">                                 
-                            <input [(ngModel)]="username" type="email" class="form-control mb-0" id="userName" name="userName" placeholder="Enter email" autocomplete="off" required>
+                            <input ngModel type="email" class="form-control mb-0" id="UserName" name="UserName" placeholder="Enter email" autocomplete="off" required>
                          </div>
                          <div class="form-group">                                 
-                            <input [(ngModel)]="password" name ="userPassword" type="password" class="form-control mb-0" id="userPassword" placeholder="Password" required>
+                            <input ngModel name ="Password" type="password" class="form-control mb-0" id="userPassword" placeholder="Password" required>
                          </div>
                          
                             <div class="sign-info">
-                               <button (click)="checkLogin()"type="submit" class="btn btn-hover">Sign in</button>
+                               <button [disabled]="!userPost.valid" type="submit" class="btn btn-hover">Sign in</button>
                                <div class="custom-control custom-checkbox d-inline-block">
                                   <input type="checkbox" class="custom-control-input" id="customCheck">
                                   <label class="custom-control-label" for="customCheck">Remember Me</label>
@@ -25,10 +26,18 @@
                             </div>                                    
                          
                       </form>
-                      {{username}}
-                      {{password}}
+                      {{tokenList}}
+                     
 
-                      {{token}}
+                      <ul>
+                        <li *ngFor="let employee of tokenList  ">
+                           <p>{{employee.tokenValue}}<p>
+                        
+                         
+                           
+                           
+                        </li>
+                    </ul>
                     
                    </div>
                 </div>
@@ -39,12 +48,7 @@
                    <div class="d-flex justify-content-center links">
                       <a href="reset-password.html" class="f-link">Forgot your password?</a>
                    </div>
-                   <ul>
-                     <li *ngFor="let login of loginList ">
-                         <h3>id:{{login.id}}</h3>
-                       
-                     </li>
-                 </ul>
+                  
                
                 </div>
              </div>

@@ -1,4 +1,7 @@
+import { tokenName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { observable } from 'rxjs';
 import { SharedServiceService } from 'src/app/shared-service.service';
 
 @Component({
@@ -9,17 +12,21 @@ import { SharedServiceService } from 'src/app/shared-service.service';
 export class LoginPageComponent implements OnInit {
 
   loginList:any=[]
-  username:string=""
-  password:string=""
- token=""
+  tokenList:any=[]
 
-   login ={
-    UserName:"",
-    Password :""
+
+  login ={
+    UserName:"moas455sd4344",
+    Password :"1234"
    }
 
+  
+
+   
   constructor(private myService :SharedServiceService) { 
-     
+  
+  
+    
   }
 
   ngOnInit(): void {
@@ -28,11 +35,8 @@ getLogin(){
   this.myService.getLoginList().subscribe(data=> {this.loginList=data})
 
 }
+ getToken(formData:NgForm){
+ this.myService.getToken(formData).subscribe(data=>{this.tokenList=data})
+ }
 
-checkLogin(){
-this.login.UserName=this.username
-this.login.Password=this.password
-this.myService.checkLogin(this.login).subscribe(data=>{this.token=data})
-
-  }
 }
