@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -11,5 +12,8 @@ export class SignUpPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  CreateCustomer(customerData:NgForm){
+    console.warn(customerData.value)
 
+  }
 }

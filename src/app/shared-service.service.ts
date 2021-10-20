@@ -10,15 +10,20 @@ ApiUrl = "https://localhost:44391/api/"
   constructor(private http :HttpClient) { }
 
   getLoginList(){
-    return this.http.get<any>(this.ApiUrl+"Movie/GetMovie");
+    return this.http.get<any>(this.ApiUrl+"Login/GetLogin");
   }
 
-getToken(formData:NgForm){
+getToken(formData:any){
 
   let Form = JSON.stringify(formData.value);
+  console.warn(Form)
   const headerOptions = new HttpHeaders();
    headerOptions.set('Content-Type', 'application/json');
    
- return this.http.post<any>(this.ApiUrl+"Login",Form,{headers:headerOptions})
+ return this.http.post<any>(this.ApiUrl+"Login/isUserExist",Form,{headers:headerOptions})
+}
+
+insertUser(user:any){
+  return this.http.post<any>(this.ApiUrl+"Login/InsertLogin",user)
 }
 }
