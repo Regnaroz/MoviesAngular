@@ -36,7 +36,28 @@ getLogin(){
 
 }
  getToken(formData:NgForm){
- this.myService.getToken(formData).subscribe(data=>{this.tokenList=data})
- }
+  let  user={  
+        
+    "userName":formData.value.UserName,
+    "password": formData.value.Password}
+ this.myService.getToken(user).pipe()
 
+}
+insertLogin(){
+  let user=
+  {
+   "userName": "newUser2",
+    "password": "1234",
+    "departmentId": 1,
+    "accountantId": 1,
+    "customerId": 2,
+    "verification": 6873,
+    "accountant": null,
+    "customer": null,
+    "department": null
+}
+
+this.myService.insertUser(user).subscribe(data=>{console.warn(data)})
+
+}
 }
