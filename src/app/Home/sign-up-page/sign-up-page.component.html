@@ -8,31 +8,41 @@
                       <h3 class="mb-3 text-center">Sign Up</h3>
                       <form class="mt-4" #userSignUp="ngForm" (ngSubmit)="CreateCustomer(userSignUp)">
                          <div class="form-group">                                 
-                            <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="FirstName" name="FirstName" placeholder="First Name" autocomplete="off" required>
+                            <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="firstname" name="firstname" placeholder="First Name" autocomplete="off" required>
                          </div>
                          <div class="form-group">                                 
-                            <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="SecondName" name="SecondName" placeholder="last Name" autocomplete="off" required>
+                            <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="lastname" name="lastname" placeholder="last Name" autocomplete="off" required>
                          </div>
                          <div class="form-group">                                 
                             <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="UserName" name="UserName" placeholder="Username" autocomplete="off" required>
                          </div>
                          <div class="form-group">                                 
-                            <input required style="text-align:center;" type="email" ngModel  class="form-control mb-0" name="UserEmail"  id="UserEmail" placeholder="Enter email" autocomplete="off" required>
+                            <input required style="text-align:center;" email ngModel  class="form-control mb-0" name="email"  id="email" placeholder="Enter email" autocomplete="off" required>
                          </div>
                          <div class="form-group">                                 
-                            <input required style="text-align:center;" type="password" ngModel class="form-control mb-0" id="userPassword" name="userPassword" placeholder="Password" required>
+                            <input required style="text-align:center;" type="password" ngModel class="form-control mb-0" id="Password" name="Password" placeholder="Password" required>
                          </div>  
+                         <div class="form-group">  
+                            <input  style="text-align:center;"  type="password" ngModel class="form-control mb-0" name = "confirmUserPassword" id="confirmUserPassword" placeholder="confirm Password" required>
+                                                  
+                        
+                           </div> 
                          <div class="form-group">                                 
-                            <input  style="text-align:center;" type="password" ngModel class="form-control mb-0" name = "confirmUserPassword" id="confirmUserPassword" placeholder="confirm Password" required>
-                         </div> 
+                           <input required style="text-align:center;" type="text" ngModel  class="form-control mb-0" name="VisaCard"  id="VisaCard" placeholder="Enter Visa Card NUmber" autocomplete="off" required>
+                        </div>
                          <div class="custom-control custom-checkbox mb-3 offset-3">
-                            <input required style="text-align:center;"  ng-model="isChecked" type="checkbox" ngModel class="custom-control-input" id="customCheck">
+                            <input required ngModel style="text-align:center;"  type="checkbox"  class="custom-control-input" id="customCheck">
                             <label class="custom-control-label" for="customCheck">I accept <a href="#" class="text-primary"> Terms and Conditions</a></label>
                          </div>                      
                             
-                         <button type="submit" [disabled]="!userSignUp.valid   " class="btn btn-hover offset-4">Sign Up</button>
-                                                             
+                         <button type="submit" [disabled]="!userSignUp.valid" class="btn btn-hover offset-4">Sign Up</button>
+                        
+                        
+                                                         
                       </form>
+                    
+                      
+                    
                    </div>
                 </div>    
                 <div class="mt-3">
