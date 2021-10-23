@@ -11,8 +11,6 @@ import { MoviesComponent } from './Home/movies/movies.component';
 import { LoginPageComponent } from './Home/login-page/login-page.component';
 import { MovieDetailsComponent } from './Home/movie-details/movie-details.component';
 import { ShowDetailsComponent } from './Home/show-details/show-details.component';
-import { ManageProfileComponent } from './Home/manage-profile/manage-profile.component';
-import { PricingPlanComponent } from './Home/pricing-plan/pricing-plan.component';
 import { ManageSettingsComponent } from './Home/manage-settings/manage-settings.component';
 import { SignUpPageComponent } from './Home/sign-up-page/sign-up-page.component';
 import { PlayVideoPageComponent } from './Home/play-video-page/play-video-page.component';
@@ -20,7 +18,8 @@ import { ResetPasswrodComponent } from './Home/reset-passwrod/reset-passwrod.com
 import { IndexComponent } from './AdminDashboard/index/index.component';
 import { TestComponent } from './customer/test/test.component';
 import { SharedServiceService } from './shared-service.service';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { MessengerComponent } from './Home/messenger/messenger.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,14 +31,13 @@ import {HttpClientModule} from '@angular/common/http'
     LoginPageComponent,
     MovieDetailsComponent,
     ShowDetailsComponent,
-    ManageProfileComponent,
-    PricingPlanComponent,
     ManageSettingsComponent,
     SignUpPageComponent,
     PlayVideoPageComponent,
     ResetPasswrodComponent,
     IndexComponent,
-    TestComponent
+    TestComponent,
+    MessengerComponent
   ],
   imports: [
     BrowserModule,
