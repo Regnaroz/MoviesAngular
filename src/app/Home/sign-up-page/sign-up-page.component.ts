@@ -49,8 +49,6 @@ export class SignUpPageComponent implements OnInit {
          accountant:null,
          customer:null,
          department:null
-
-
        }
        this.myService.insertUser(loginData).subscribe(data=>{console.warn("login API : Created Succefully "+data.result)})
 
