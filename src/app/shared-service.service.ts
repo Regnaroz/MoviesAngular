@@ -22,8 +22,14 @@ getToken(formData:any){
    
  return this.http.post<any>(this.ApiUrl+"Login/isUserExist",Form,{headers:headerOptions})
 }
-
+getCustomerData( Email:any)
+{
+  return this.http.get<any>(this.ApiUrl+"Customer/GetCustomerByEmail/"+Email)
+}
 insertUser(user:any){
   return this.http.post<any>(this.ApiUrl+"Login/InsertLogin",user)
+}
+insertCustomer(user:NgForm){
+  return this.http.post<any>(this.ApiUrl+"Customer/InsertCustomer",user.value)
 }
 }
