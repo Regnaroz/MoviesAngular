@@ -11,7 +11,7 @@ export class LoginPageComponent implements OnInit {
   loginList:any=[]
   username:string=""
   password:string=""
- token=""
+ token:string=""
 
    login ={
     UserName:"",
@@ -30,8 +30,8 @@ getLogin(){
 }
 
 checkLogin(){
-this.login.UserName=this.username
-this.login.Password=this.password
+this.login.UserName=this.username;
+this.login.Password=this.password;
 this.myService.checkLogin(this.login).subscribe(data=>{this.token=data})
 
   }

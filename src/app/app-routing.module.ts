@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'' , component:LoginPageComponent}, // default Page
   {path:'HomePage' , component:HomePageComponent},
   {path:'ManageProfile' , component:ManageProfileComponent},
-  { path:'TvShows',component: TvShowsComponent},
+  {path:'TvShows',component: TvShowsComponent},
   {path:'Movie',component:MoviesComponent},
   {path:'Settings',component:ManageSettingsComponent},
   {path:'pricingPlan',component:PricingPlanComponent},
