@@ -307,11 +307,11 @@ video { display: block; width: 100%; height: 100%; }
 .genres-box .btn-secondary:not(:disabled):not(.disabled).active, .genres-box .btn-secondary:not(:disabled):not(.disabled):active, .genres-box.show> .btn-secondary.dropdown-toggle { background-color: rgba(108, 117, 125, 0.8) !important; border-color: transparent !important; }
 
 /*---------------------------*/
-.m-profile { padding-top: 120px; padding-bottom: 60px;}
+.m-profile { padding-top: 20px; padding-bottom: 60px;}
 .manage-p{height:100vh;}
 .m-profile .sign-user_card { background: var(--iq-bg1); }
 .m-profile .iq-custom-select .select2-container--bootstrap4 .select2-selection, .m-profile .select2-dropdown { border: 1px solid var(--iq-body-text); background: transparent; }
-.m-profile .form-group { margin-bottom: 1.2rem; }
+.m-profile .form-group { margin-bottom: 1.2 rem; }
 .m-profile .sign-user_card { padding: 30px; }
 .m-profile .select2-dropdown { top: 0; }
 .m-profile .select2-search--dropdown .select2-search__field { display: none !important; }
@@ -392,7 +392,7 @@ video { display: block; width: 100%; height: 100%; }
 -----------------------------------------------------------------------*/
 #sign-in-page-box { background: #fff; border-radius: 10px; position: relative; width: 100%; min-height: 480px; height: 93vh; margin: 15px auto; box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1); -webkit-box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1); }
 .sign-in-detail { color: var(--iq-white); }
-.sign-in-page { height: 100vh; position: relative; background: url(../images/login/login.jpg)  no-repeat scroll 0 0; background-size: cover; }
+.sign-in-page { height: 100vh; position: relative; background: url(../images/login/moviesBack.jpg)  no-repeat scroll 0 0; background-size: cover; }
 .sign-in-page .height-self-center { height: 100vh; border-radius: 15px; }
 .sign-in-page-data { border-radius: 15px; }
 .sign-in-detail { padding: 50px 80px; }
