@@ -10,7 +10,7 @@ ApiUrl = "https://localhost:44391/api/"
   constructor(private http :HttpClient) { }
 
   getLoginList(){
-    return this.http.get<any>(this.ApiUrl+"Login/GetLogin");
+    return this.http.get<any>(this.ApiUrl+"login/GetLogin");
   }
 
 getToken(formData:any){

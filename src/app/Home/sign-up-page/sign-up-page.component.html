@@ -28,11 +28,12 @@
                             <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="lastname" name="lastname" placeholder="last Name" autocomplete="off" required>
                          </div>
                          <div class="form-group">                                 
-                            <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="UserName" name="UserName" placeholder="Username" autocomplete="off" required>
+                            <input required style="text-align:center;"  [(ngModel)]='userName' type="text" ngModel class="form-control mb-0" id="UserName" name="UserName" placeholder="Username" autocomplete="off" required>
                          </div>
                          <div class="form-group">   
-                           <i class="help-block" style="margin-left :140px;"  *ngIf="!email.valid && email.touched">Email is in invalid Format</i>                              
-                            <input required #email="ngModel"  [(ngModel)]='userEmail' [ngStyle]="{'border':getEmailBorderColor()}" style="text-align:center;"  email   class="form-control mb-0" name="email"  id="email" placeholder="Enter email" autocomplete="off" required>
+                           <i class="help-block" style="margin-left :140px;"  *ngIf="!email.valid && email.touched">Email is in invalid Format</i> 
+                           <i class="help-block" style="margin-left :140px;"  *ngIf="!EmailIsValid && email.touched  ">Email is Already Registered</i>                               
+                            <input required #email="ngModel"  [(ngModel)]='userEmail' (input)="checkEmail()"[ngStyle]="{'border':getEmailBorderColor()}" style="text-align:center;"  email   class="form-control mb-0" name="email"  id="email" placeholder="Enter email" autocomplete="off" required>
                           
                            </div>
                          <div class="form-group"> 
@@ -73,6 +74,7 @@
           </div>
        </div>
     </div>
+<button type="button" (click)='getAllLogin()'>get Login</button>
  <button (click)='getAllCustomers()'>get Customers</button>
     <ul> 
       <li *ngFor="let person of loginList; let i = index"> 

@@ -1,5 +1,6 @@
 import { Component,ViewChild, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import { observable } from 'rxjs';
 import { SharedServiceService } from 'src/app/shared-service.service';
 
@@ -10,12 +11,13 @@ import { SharedServiceService } from 'src/app/shared-service.service';
 })
 export class SignUpPageComponent implements OnInit {
   loginList:any=[]
+  DataList:any=[]
   checkBoxValue = false;
 
  @ViewChild("termsBox") myCheckbox:any;
   myform:any;
   password=null
-  userEmail=''
+  userEmail:any
   RegisterResult:any=[]
   ConfirmedPassword=null
   result = false;
@@ -23,19 +25,34 @@ export class SignUpPageComponent implements OnInit {
   newData:any=[]
   customerID :any
   errorLogs =''
-  emailIsValid='initlize';
+  emailValidation='initlize';
+  EmailIsValid=true
   usernameIsValid=false
   visaIsValid=false
+  userName=''
   constructor(private myService :SharedServiceService) { }
 
   ngOnInit(): void {
-
+ 
+    this.getAllLogin()
     this.getAllCustomers()
+    
    
   }
 
+    
+     
+  getAllLogin(){
+    this.myService.getLoginList().subscribe(data=>{this.DataList=data},err=>{alert(err)})
+     this.DataList.forEach(function(item:any) {
+       console.warn(item.userName);
+       
+     });
+   
+  }
+  
   getEmailBorderColor(){
-    if(this.emailIsValid=='initlize'){
+    if(this.emailValidation=='initlize'){
       return '';
     }
     
@@ -78,11 +95,38 @@ export class SignUpPageComponent implements OnInit {
     
     
   }
+  
+  checkUserName(){
+    this.usernameIsValid=true
+    this.emailValidation='initlize'
+     this.loginList.forEach((record:any) =>  {
+         if(record.email.toString() == this.userName)
+         {
+          setTimeout(() => {
+             this.EmailIsValid=false, this.emailValidation='Error';
+          }, 1000)
+          
+         
+         }
+     });
+      
+    
+    }
 checkEmail(){
+this.EmailIsValid=true
+this.emailValidation='initlize'
+ this.loginList.forEach((record:any) =>  {
+     if(record.email.toString() == this.userEmail)
+     {
+      setTimeout(() => {
+         this.EmailIsValid=false, this.emailValidation='Error';
+      }, 1000)
+      
+     
+     }
+ });
+  
 
-  this.loginList.forEach(function (item:any) {  
-    console.warn(item.email) 
-});
 }
 getAllCustomers(){
     this.myService.getAllCustomersData().subscribe(data=>{this.loginList=data},err=>{alert(err)})
@@ -139,7 +183,7 @@ getAllCustomers(){
      else
      {
      alert('Error  email, username or card are invaild');
-     this.emailIsValid='Error'
+     this.emailValidation='Error'
      }
 
       }, err =>{alert()})
