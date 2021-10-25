@@ -31,8 +31,8 @@
                             <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="UserName" name="UserName" placeholder="Username" autocomplete="off" required>
                          </div>
                          <div class="form-group">   
-                           <i class="help-block" style="margin-left :140px;" *ngIf="!email.valid && email.touched">Email is in invalid Format</i>                              
-                            <input required #email="ngModel"  style="text-align:center;"  email ngModel  class="form-control mb-0" name="email"  id="email" placeholder="Enter email" autocomplete="off" required>
+                           <i class="help-block" style="margin-left :140px;"  *ngIf="!email.valid && email.touched">Email is in invalid Format</i>                              
+                            <input required #email="ngModel"  [(ngModel)]='userEmail' [ngStyle]="{'border':getEmailBorderColor()}" style="text-align:center;"  email   class="form-control mb-0" name="email"  id="email" placeholder="Enter email" autocomplete="off" required>
                           
                            </div>
                          <div class="form-group"> 
@@ -73,4 +73,11 @@
           </div>
        </div>
     </div>
+ <button (click)='getAllCustomers()'>get Customers</button>
+    <ul> 
+      <li *ngFor="let person of loginList; let i = index"> 
+       <p>{{person.email}}</p>
+       
+      </li>
+    </ul>
  </section>

@@ -15,6 +15,7 @@ export class SignUpPageComponent implements OnInit {
  @ViewChild("termsBox") myCheckbox:any;
   myform:any;
   password=null
+  userEmail=''
   RegisterResult:any=[]
   ConfirmedPassword=null
   result = false;
@@ -22,20 +23,33 @@ export class SignUpPageComponent implements OnInit {
   newData:any=[]
   customerID :any
   errorLogs =''
-  emailIsValid=false
+  emailIsValid='initlize';
   usernameIsValid=false
   visaIsValid=false
   constructor(private myService :SharedServiceService) { }
 
   ngOnInit(): void {
+
     this.getAllCustomers()
    
   }
-  getBorderColor() {
+
+  getEmailBorderColor(){
+    if(this.emailIsValid=='initlize'){
+      return '';
+    }
     
-    if(this.password==this.ConfirmedPassword)
+    else
+    return '1px red solid';
+  }
+  getBorderColor() {
+    if(this.password==null)
+    {
+      return '';
+    }
+   else if(this.password==this.ConfirmedPassword)
       return '1px green solid';
-      else
+    else
       return '1px red solid';
   }
   checkPassword(){
@@ -56,7 +70,7 @@ export class SignUpPageComponent implements OnInit {
     else 
     this.checkBoxValue = false
   
-    console.warn(this.checkBoxValue)
+   
    }
   
   getCustomer (email:string){
@@ -70,9 +84,12 @@ checkEmail(){
     console.warn(item.email) 
 });
 }
-  getAllCustomers(){
+getAllCustomers(){
     this.myService.getAllCustomersData().subscribe(data=>{this.loginList=data},err=>{alert(err)})
-    
+     this.loginList.forEach(function(item:any) {
+       console.warn(item.email);
+       
+     });
    
   }
   CreateCustomer(customerData:NgForm){
@@ -120,8 +137,10 @@ checkEmail(){
      
      }
      else
-     alert('Error  email, username or card are invaild')
-      
+     {
+     alert('Error  email, username or card are invaild');
+     this.emailIsValid='Error'
+     }
 
       }, err =>{alert()})
   
