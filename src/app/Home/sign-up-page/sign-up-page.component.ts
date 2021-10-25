@@ -101,8 +101,6 @@ checkEmail(){
          accountant:null,
          customer:null,
          department:null
-
-
        }
         this.myService.insertUser(loginData).subscribe(data=>{ 
          alert("Created Email Succefully!")
