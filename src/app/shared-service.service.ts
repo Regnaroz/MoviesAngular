@@ -14,13 +14,16 @@ ApiUrl = "https://localhost:44391/api/"
   }
 
 getToken(formData:any){
-
-  let Form = JSON.stringify(formData.value);
-  console.warn(Form)
-  const headerOptions = new HttpHeaders();
-   headerOptions.set('Content-Type', 'application/json');
-   
- return this.http.post<any>(this.ApiUrl+"Login/isUserExist",Form,{headers:headerOptions})
+  const headerDict = {
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     }
+    const requestOptions = {                                                                                                                                                                                 
+       headers: new HttpHeaders(headerDict), 
+    };
+   return this.http.post('https://localhost:44391/api/login/checkLogin',formData,
+     requestOptions)      
+ 
 }
 
 getSingleCustomerData( Email:any)

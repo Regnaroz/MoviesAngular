@@ -142,7 +142,7 @@ getAllCustomers(){
     {
        this.result=false
      
-    
+      customerData.value.VisaCard=null
      
       this.myService.insertCustomer(customerData).subscribe( data=>{
      if(data)

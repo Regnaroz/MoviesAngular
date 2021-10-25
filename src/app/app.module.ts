@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule ,ReactiveFormsModule} from '@angular/forms'
 import { AppRoutingModule  } from './app-routing.module';
 import { AppComponent } from './app.component';
+import jwtDecode from 'jwt-decode';
 import { HomePageComponent } from './Home/home-page/home-page.component';
 import { HomeHeaderComponent } from './Home/home-header/home-header.component';
 import { HomeFooterComponent } from './Home/home-footer/home-footer.component';
