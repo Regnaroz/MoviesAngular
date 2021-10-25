@@ -22,10 +22,15 @@ getToken(formData:any){
    
  return this.http.post<any>(this.ApiUrl+"Login/isUserExist",Form,{headers:headerOptions})
 }
-getCustomerData( Email:any)
+
+getSingleCustomerData( Email:any)
 {
   return this.http.get<any>(this.ApiUrl+"Customer/GetCustomerByEmail/"+Email)
 }
+getAllCustomersData (){
+  return this.http.get<any>(this.ApiUrl+"Customer/GetCustomer")
+}
+
 insertUser(user:any){
   return this.http.post<any>(this.ApiUrl+"Login/InsertLogin",user)
 }

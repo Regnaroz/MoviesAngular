@@ -5,6 +5,20 @@
              <div class="sign-user_card ">                    
                 <div class="sign-in-page-data">
                    <div class="sign-in-from w-100 m-auto">
+                   
+                     <div class="alert text-white bg-warning" role="alert" *ngIf=" errorLogs!==''">
+                       
+                        <div class="iq-alert-text">
+                           <span class="iq-alert-icon">
+                              <i class="ri-alert-line"></i>
+                           </span>
+                          <b>{{errorLogs}}</b>
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <i class="ri-close-line"></i>
+                              </button>
+                           </div>
+                       
+                     </div>
                       <h3 class="mb-3 text-center">Sign Up</h3>
                       <form class="mt-4" #userSignUp="ngForm" (ngSubmit)="CreateCustomer(userSignUp)">
                          <div class="form-group">                                 
@@ -16,14 +30,18 @@
                          <div class="form-group">                                 
                             <input required style="text-align:center;" type="text" ngModel class="form-control mb-0" id="UserName" name="UserName" placeholder="Username" autocomplete="off" required>
                          </div>
-                         <div class="form-group">                                 
-                            <input required style="text-align:center;" email ngModel  class="form-control mb-0" name="email"  id="email" placeholder="Enter email" autocomplete="off" required>
-                         </div>
-                         <div class="form-group">                                 
-                            <input required style="text-align:center;" type="password" ngModel class="form-control mb-0" id="Password" name="Password" placeholder="Password" required>
+                         <div class="form-group">   
+                           <i class="help-block" style="margin-left :140px;" *ngIf="!email.valid && email.touched">Email is in invalid Format</i>                              
+                            <input required #email="ngModel"  style="text-align:center;"  email ngModel  class="form-control mb-0" name="email"  id="email" placeholder="Enter email" autocomplete="off" required>
+                          
+                           </div>
+                         <div class="form-group"> 
+                           <i class="help-block" style="margin-left :140px;" *ngIf="!passwordValid">Passwords doesnt match</i>                              
+                                            
+                            <input required  style="text-align:center;" [ngStyle]="{'border':getBorderColor()}" (input)='getBorderColor()' [(ngModel)]='password' type="password" ngModel class="form-control mb-0" id="Password" name="Password" placeholder="Password" required>
                          </div>  
                          <div class="form-group">  
-                            <input  style="text-align:center;"  type="password" ngModel class="form-control mb-0" name = "confirmUserPassword" id="confirmUserPassword" placeholder="confirm Password" required>
+                            <input  style="text-align:center;" [ngStyle]="{'border':getBorderColor()}" (input)='getBorderColor()' type="password" [(ngModel)]='ConfirmedPassword' class="form-control mb-0" name = "confirmUserPassword" id="confirmUserPassword" placeholder="confirm Password" required>
                                                   
                         
                            </div> 
@@ -31,12 +49,13 @@
                            <input required style="text-align:center;" type="text" ngModel  class="form-control mb-0" name="VisaCard"  id="VisaCard" placeholder="Enter Visa Card NUmber" autocomplete="off" required>
                         </div>
                          <div class="custom-control custom-checkbox mb-3 offset-3">
-                            <input required ngModel style="text-align:center;"  type="checkbox"  class="custom-control-input" id="customCheck">
-                            <label class="custom-control-label" for="customCheck">I accept <a href="#" class="text-primary"> Terms and Conditions</a></label>
+                            <input  ngModel style="text-align:center;" #termsBox (change)='setBoxValue()' name="termsBox" type="checkbox"  class="custom-control-input" id="termsBox">
+                            <label class="custom-control-label" for="termsBox">I accept <a href="#" class="text-primary"> Terms and Conditions</a></label>
                          </div>                      
                             
-                         <button type="submit" [disabled]="!userSignUp.valid" class="btn btn-hover offset-4">Sign Up</button>
-                        
+                         <button type="submit" [disabled]="!userSignUp.valid || !checkPassword() || !checkBoxValue" class="btn btn-hover offset-4">Sign Up</button>
+                        {{password}}
+                        {{ConfirmedPassword}}
                         
                                                          
                       </form>
@@ -55,4 +74,12 @@
        </div>
     </div>
  </section>
+ <button (click)="getAllCustomers()">get Customers</button>
+ <button (click)="checkEmail()">get Customers</button>
+ <ul> 
+   <li *ngFor="let person of loginList; let i = index"> 
+      <p>{{person.email}}</p>
+      <p>{{person.firstName}}</p>
+   </li>
+ </ul>
     <app-home-footer></app-home-footer>
