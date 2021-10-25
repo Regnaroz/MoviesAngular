@@ -12,7 +12,13 @@ import { SharedServiceService } from 'src/app/shared-service.service';
 export class LoginPageComponent implements OnInit {
 
   loginList:any=[]
+<<<<<<< HEAD
+  username:string=""
+  password:string=""
+ token:string=""
+=======
   tokenList:any=[]
+>>>>>>> 7afbcb46ba834eb837a54ac267087102815081b1
 
 
   login ={
@@ -42,6 +48,12 @@ getLogin(){
     "password": formData.value.Password}
  this.myService.getToken(user).pipe()
 
+<<<<<<< HEAD
+checkLogin(){
+this.login.UserName=this.username;
+this.login.Password=this.password;
+this.myService.checkLogin(this.login).subscribe(data=>{this.token=data})
+=======
 }
 insertLogin(){
   let user=
@@ -56,6 +68,7 @@ insertLogin(){
     "customer": null,
     "department": null
 }
+>>>>>>> 7afbcb46ba834eb837a54ac267087102815081b1
 
 this.myService.insertUser(user).subscribe(data=>{console.warn(data)})
 

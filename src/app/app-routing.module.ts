@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:'' , component:LoginPageComponent}, // default Page
   {path:'HomePage' , component:HomePageComponent},
   {path:'TvShows',component: TvShowsComponent},
+  { path:'TvShows',component: TvShowsComponent},
   {path:'Movie',component:MoviesComponent},
   {path:'Settings',component:ManageSettingsComponent},
   {path:'logIn',component:LoginPageComponent},
@@ -34,3 +35,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
