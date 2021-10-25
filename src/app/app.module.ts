@@ -11,15 +11,16 @@ import { MoviesComponent } from './Home/movies/movies.component';
 import { LoginPageComponent } from './Home/login-page/login-page.component';
 import { MovieDetailsComponent } from './Home/movie-details/movie-details.component';
 import { ShowDetailsComponent } from './Home/show-details/show-details.component';
-import { ManageSettingsComponent } from './Home/manage-settings/manage-settings.component';
+import { ManageSettingsComponent } from './customer/manage-settings/manage-settings.component';
 import { SignUpPageComponent } from './Home/sign-up-page/sign-up-page.component';
 import { PlayVideoPageComponent } from './Home/play-video-page/play-video-page.component';
 import { ResetPasswrodComponent } from './Home/reset-passwrod/reset-passwrod.component';
-import { IndexComponent } from './AdminDashboard/index/index.component';
-import { TestComponent } from './customer/test/test.component';
 import { SharedServiceService } from './shared-service.service';
 import {HttpClientModule} from '@angular/common/http';
-import { MessengerComponent } from './Home/messenger/messenger.component'
+import { MessengerComponent } from './customer/messenger/messenger.component';
+import { AddtestimonialComponent } from './customer/addtestimonial/addtestimonial.component';
+import { MovielistComponent } from './customer/movielist/movielist.component';
+import { HistoryComponent } from './customer/history/history.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +36,10 @@ import { MessengerComponent } from './Home/messenger/messenger.component'
     SignUpPageComponent,
     PlayVideoPageComponent,
     ResetPasswrodComponent,
-    IndexComponent,
-    TestComponent,
-    MessengerComponent
+    MessengerComponent,
+    AddtestimonialComponent,
+    MovielistComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

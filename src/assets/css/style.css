@@ -1,27 +1,4 @@
-/*
-Template: Streamit - Responsive Bootstrap 4 Template
-Author: iqonicthemes.in
-Design and Developed by: iqonicthemes.in
-NOTE: This file contains the styling for responsive Template.
-*/
 
-/*================================================
-[  Table of contents  ]
-================================================
-
-:: Header
-:: Navigation
-:: Pages Content
-:: Back to Top
-:: Sign In
-
-======================================
-[ End table content ]
-======================================*/
-
-/*---------------------------------------------------------------------
-                    Header
------------------------------------------------------------------------*/
 header#main-header { position: fixed; left: 0px; right: 0px; text-align: center; z-index: 99; background: rgba(20, 20, 20, 0.5) !important; }
 header .navbar-light .navbar-brand img.logo { width: 160px; }
 .iq-search-bar .search-input { width: 100%; height: 40px; padding: 5px 15px 5px 40px; border: none; border-radius: 0; color: var(--iq-white); background: var(--iq-bg1); }
@@ -87,7 +64,7 @@ header .navbar ul li:last-child { margin-right: 0; }
 #home-slider .slick-bg.s-bg-3 { background-image: url(../images/slider/slider3.jpg); }
 .trailor-video { position: absolute; bottom: 0; right: 0; z-index: 999; }
 .channel-name { color: var(--iq-primary); font-size: 20px; margin-left: 10px; letter-spacing: 2.5px; font-weight: 500; }
-.c-logo { width: 130px; }
+.c-logo { width: 100px; }
 .channel-logo { border-left: 5px solid var(--iq-primary); background: transparent linear-gradient(270deg, rgba(11, 1, 2, 0) 0%, rgba(255, 55, 65, 0.3) 100%); padding: 10px 10px 10px 15px; width: 255px; position: relative; overflow: hidden; }
 .circle { stroke: var(--iq-primary); stroke-dasharray: 650; stroke-dashoffset: 650; -webkit-transition: all 0.5s ease-in-out; opacity: 0.3; }
 .playbtn { display: inline-block; -webkit-transition: all 0.5s ease; }
@@ -307,7 +284,7 @@ video { display: block; width: 100%; height: 100%; }
 .genres-box .btn-secondary:not(:disabled):not(.disabled).active, .genres-box .btn-secondary:not(:disabled):not(.disabled):active, .genres-box.show> .btn-secondary.dropdown-toggle { background-color: rgba(108, 117, 125, 0.8) !important; border-color: transparent !important; }
 
 /*---------------------------*/
-.m-profile { padding-top: 20px; padding-bottom: 60px;}
+.m-profile { padding-top: 160px; padding-bottom: 60px;}
 .manage-p{height:100vh;}
 .m-profile .sign-user_card { background: var(--iq-bg1); }
 .m-profile .iq-custom-select .select2-container--bootstrap4 .select2-selection, .m-profile .select2-dropdown { border: 1px solid var(--iq-body-text); background: transparent; }
